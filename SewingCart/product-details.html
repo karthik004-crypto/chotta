@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - SewingCart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/product-details.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .header {
+            background-color: #000000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">SewingCart</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="login.html" class="profile-icon">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="product-details-container">
+        <div class="product-details">
+            <div class="product-images">
+                <div class="main-image">
+                    <img id="productMainImage" src="" alt="Product Image">
+                </div>
+            </div>
+            <div class="product-info">
+                <h1 id="productName"></h1>
+                <div class="product-price" id="productPrice"></div>
+                <div class="product-description" id="productDescription"></div>
+                
+                <div class="product-actions">
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" id="decreaseQuantity">-</button>
+                        <input type="number" id="quantity" value="1" min="1">
+                        <button class="quantity-btn" id="increaseQuantity">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" id="addToCart">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+
+                <div class="product-meta">
+                    <div class="stock-info" id="stockInfo"></div>
+                    <div class="category-info" id="categoryInfo"></div>
+                </div>
+            </div>
+        </div>
+
+        <section class="similar-products">
+            <h2>Similar Products</h2>
+            <div class="products-grid" id="similarProducts">
+                <!-- Similar products will be loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/product-details.js"></script>
+</body>
+</html> 

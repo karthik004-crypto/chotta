@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Again - Sewing Cart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/orders.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .header {
+            background-color: #000000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Sewing Cart</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="categories.html">Categories</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="profile-section">
+                <a href="login.html" class="profile-icon">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="order-again-section">
+            <h2 class="section-title">Order Again</h2>
+            <div id="order-again-content">
+                <!-- Previous purchases or best sellers will be rendered here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="categories.html" class="nav-item">
+            <i class="fas fa-th-large"></i>
+            <span>Categories</span>
+        </a>
+        <a href="orders.html" class="nav-item active">
+            <i class="fas fa-redo"></i>
+            <span>Order Again</span>
+        </a>
+        <a href="cart.html" class="nav-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+        </a>
+    </nav>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sewing Cart</h3>
+                <p>Quality sewing supplies for every project</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="categories.html">Categories</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sewing Cart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/shared-cart.js"></script>
+    <script>
+    // Simulate previous purchases from localStorage
+    function getPreviousPurchases() {
+        // Example: [{id, name, price, image}]
+        return JSON.parse(localStorage.getItem('previousPurchases') || '[]');
+    }
+
+    // Example best sellers (can be replaced with real data)
+    const bestSellers = [
+        {id: 1, name: 'Sewing Machine Pro', price: 299.99, image: 'images/sewing-machine.jpg'},
+        {id: 2, name: 'Premium Cotton Fabric', price: 24.99, image: 'images/fabric.jpg'},
+        {id: 3, name: 'Thread Set (50 Colors)', price: 15.99, image: 'images/thread.jpg'},
+        {id: 4, name: 'Professional Needle Set', price: 19.99, image: 'images/needles.jpg'},
+        {id: 5, name: 'Premium Scissors', price: 34.99, image: 'images/scissors.jpg'}
+    ];
+
+    function renderProducts(products, title) {
+        return `
+            <h3 style="margin-bottom:1.5rem;">${title}</h3>
+            <div class="product-grid-horizontal">
+                ${products.map(product => `
+                    <div class="product-card" data-id="${product.id}">
+                        <img src="${product.image}" alt="${product.name}" class="product-image">
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-price">₹${product.price.toFixed(2)}</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
+
+    function renderOrderAgain() {
+        const purchases = getPreviousPurchases();
+        const container = document.getElementById('order-again-content');
+        if (purchases.length > 0) {
+            container.innerHTML = renderProducts(purchases, 'Your Previous Purchases');
+        } else {
+            container.innerHTML = renderProducts(bestSellers, 'Best Selling Products');
+        }
+        // Add to cart button functionality
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const card = btn.closest('.product-card');
+                const id = card.getAttribute('data-id');
+                const product = (purchases.length > 0 ? purchases : bestSellers).find(p => p.id == id);
+                if (product) {
+                    const sharedCart = new SharedCart();
+                    sharedCart.addToCart(product);
+                    alert('Product added to cart!');
+                }
+            });
+        });
+    }
+    document.addEventListener('DOMContentLoaded', renderOrderAgain);
+    </script>
+</body>
+</html> 

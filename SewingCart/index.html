@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sewing Cart - Your One-Stop Shop for Sewing Supplies</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .header {
+            background-color: #000000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Sewing Cart</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="categories.html">Categories</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="profile-section">
+                <a href="login.html" class="profile-icon">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </nav>
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search for products...">
+                <button type="button" id="searchButton">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <!-- Search results will be displayed here -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Sliding Banner -->
+    <div class="sliding-banner">
+        <div class="banner-images">
+            <img src="images/banner1.jpg" class="banner-slide active" alt="Banner 1">
+            <img src="images/banner2.jpg" class="banner-slide" alt="Banner 2">
+            <img src="images/banner3.jpg" class="banner-slide" alt="Banner 3">
+            <img src="images/banner4.jpg" class="banner-slide" alt="Banner 4">
+            <img src="images/banner5.jpg" class="banner-slide" alt="Banner 5">
+            <img src="images/banner6.jpg" class="banner-slide" alt="Banner 6">
+        </div>
+    </div>
+
+    <!-- Best Sellers Section -->
+    <section class="best-sellers">
+        <h2 class="section-title">Best Sellers</h2>
+        <div class="slider-container">
+            <div class="best-sellers-slider">
+                <div class="product-card" data-id="1" data-price="299.99">
+                    <img src="images/sewing-machine.jpg" alt="Sewing Machine" class="product-image">
+                    <h3 class="product-name">Sewing Machine Pro</h3>
+                    <p class="product-price">₹299.99</p>
+                </div>
+                <div class="product-card" data-id="2" data-price="24.99">
+                    <img src="images/fabric.jpg" alt="Premium Fabric" class="product-image">
+                    <h3 class="product-name">Premium Cotton Fabric</h3>
+                    <p class="product-price">₹24.99</p>
+                </div>
+                <div class="product-card" data-id="3" data-price="15.99">
+                    <img src="images/thread.jpg" alt="Thread Set" class="product-image">
+                    <h3 class="product-name">Thread Set (50 Colors)</h3>
+                    <p class="product-price">₹15.99</p>
+                </div>
+                <div class="product-card" data-id="4" data-price="19.99">
+                    <img src="images/needles.jpg" alt="Needle Set" class="product-image">
+                    <h3 class="product-name">Professional Needle Set</h3>
+                    <p class="product-price">₹19.99</p>
+                </div>
+                <div class="product-card" data-id="5" data-price="34.99">
+                    <img src="images/scissors.jpg" alt="Scissors" class="product-image">
+                    <h3 class="product-name">Premium Scissors</h3>
+                    <p class="product-price">₹34.99</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internal Parts Section -->
+    <section class="internal-parts">
+        <h2 class="section-title"><a href="categories.html#internal-parts">Internal Parts</a></h2>
+        <div class="product-grid-horizontal">
+            <div class="product-card">
+                <img src="images/internal1.jpg" alt="Internal Part 1" class="product-image">
+                <h3 class="product-name">Internal Part 1</h3>
+                <p class="product-price">₹12.99</p>
+            </div>
+            <div class="product-card">
+                <img src="images/internal2.jpg" alt="Internal Part 2" class="product-image">
+                <h3 class="product-name">Internal Part 2</h3>
+                <p class="product-price">₹15.99</p>
+            </div>
+            <div class="product-card">
+                <img src="images/internal3.jpg" alt="Internal Part 3" class="product-image">
+                <h3 class="product-name">Internal Part 3</h3>
+                <p class="product-price">₹9.99</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spare Parts Section -->
+    <section class="spare-parts">
+        <h2 class="section-title"><a href="categories.html#spare-parts">Spare Parts</a></h2>
+        <div class="product-grid-horizontal">
+            <div class="product-card">
+                <img src="images/spare1.jpg" alt="Spare Part 1" class="product-image">
+                <h3 class="product-name">Spare Part 1</h3>
+                <p class="product-price">₹8.99</p>
+            </div>
+            <div class="product-card">
+                <img src="images/spare2.jpg" alt="Spare Part 2" class="product-image">
+                <h3 class="product-name">Spare Part 2</h3>
+                <p class="product-price">₹11.99</p>
+            </div>
+            <div class="product-card">
+                <img src="images/spare3.jpg" alt="Spare Part 3" class="product-image">
+                <h3 class="product-name">Spare Part 3</h3>
+                <p class="product-price">₹10.99</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Folders Section -->
+    <section class="folders">
+        <h2 class="section-title"><a href="categories.html#folders">Folders</a></h2>
+        <div class="product-grid-horizontal">
+            <div class="product-card">
+                <img src="images/folder1.jpg" alt="Folder 1" class="product-image">
+                <h3 class="product-name">Folder 1</h3>
+                <p class="product-price">₹6.99</p>
+            </div>
+            <div class="product-card">
+                <img src="images/folder2.jpg" alt="Folder 2" class="product-image">
+                <h3 class="product-name">Folder 2</h3>
+                <p class="product-price">₹7.99</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sewing Machine Section -->
+    <section class="sewing-machine">
+        <h2 class="section-title"><a href="categories.html#sewing-machine">Sewing Machine</a></h2>
+        <div class="product-grid-horizontal">
+            <div class="product-card">
+                <img src="images/sewing-machine.jpg" alt="Sewing Machine Pro" class="product-image">
+                <h3 class="product-name">Sewing Machine Pro</h3>
+                <p class="product-price">₹299.99</p>
+            </div>
+            <div class="product-card">
+                <img src="images/sewing-machine2.jpg" alt="Sewing Machine Basic" class="product-image">
+                <h3 class="product-name">Sewing Machine Basic</h3>
+                <p class="product-price">₹199.99</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Needles Section -->
+    <section class="needles">
+        <h2 class="section-title"><a href="categories.html#needles">Needles</a></h2>
+        <div class="product-grid-horizontal">
+            <div class="product-card">
+                <img src="images/needles.jpg" alt="Professional Needle Set" class="product-image">
+                <h3 class="product-name">Professional Needle Set</h3>
+                <p class="product-price">₹19.99</p>
+            </div>
+            <div class="product-card">
+                <img src="images/needles2.jpg" alt="Basic Needle Set" class="product-image">
+                <h3 class="product-name">Basic Needle Set</h3>
+                <p class="product-price">₹9.99</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blades & Knives Section -->
+    <section class="blades-knives">
+        <h2 class="section-title"><a href="categories.html#blades">Blades & Knives</a></h2>
+        <div class="product-grid-horizontal">
+            <div class="product-card">
+                <img src="images/blade1.jpg" alt="Blade 1" class="product-image">
+                <h3 class="product-name">Blade 1</h3>
+                <p class="product-price">₹5.99</p>
+            </div>
+            <div class="product-card">
+                <img src="images/knife1.jpg" alt="Knife 1" class="product-image">
+                <h3 class="product-name">Knife 1</h3>
+                <p class="product-price">₹7.99</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Steam Iron Section -->
+    <section class="steam-iron">
+        <h2 class="section-title"><a href="categories.html#iron">Steam Iron</a></h2>
+        <div class="product-grid-horizontal">
+            <div class="product-card">
+                <img src="images/steam-iron1.jpg" alt="Steam Iron 1" class="product-image">
+                <h3 class="product-name">Steam Iron 1</h3>
+                <p class="product-price">₹49.99</p>
+            </div>
+            <div class="product-card">
+                <img src="images/steam-iron2.jpg" alt="Steam Iron 2" class="product-image">
+                <h3 class="product-name">Steam Iron 2</h3>
+                <p class="product-price">₹59.99</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motor Section -->
+    <section class="motor">
+        <h2 class="section-title"><a href="categories.html#motor">Motor</a></h2>
+        <div class="product-grid-horizontal">
+            <div class="product-card">
+                <img src="images/motor1.jpg" alt="Motor 1" class="product-image">
+                <h3 class="product-name">Motor 1</h3>
+                <p class="product-price">₹89.99</p>
+            </div>
+            <div class="product-card">
+                <img src="images/motor2.jpg" alt="Motor 2" class="product-image">
+                <h3 class="product-name">Motor 2</h3>
+                <p class="product-price">₹99.99</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Embroidery Section -->
+    <section class="embroidery">
+        <h2 class="section-title"><a href="categories.html#embroidery">Embroidery</a></h2>
+        <div class="product-grid-horizontal">
+            <div class="product-card">
+                <img src="images/embroidery1.jpg" alt="Embroidery 1" class="product-image">
+                <h3 class="product-name">Embroidery 1</h3>
+                <p class="product-price">₹79.99</p>
+            </div>
+            <div class="product-card">
+                <img src="images/embroidery2.jpg" alt="Embroidery 2" class="product-image">
+                <h3 class="product-name">Embroidery 2</h3>
+                <p class="product-price">₹89.99</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Looper Section -->
+    <section class="looper">
+        <h2 class="section-title"><a href="categories.html#loopers">Looper</a></h2>
+        <div class="product-grid-horizontal">
+            <div class="product-card">
+                <img src="images/looper1.jpg" alt="Looper 1" class="product-image">
+                <h3 class="product-name">Looper 1</h3>
+                <p class="product-price">₹29.99</p>
+            </div>
+            <div class="product-card">
+                <img src="images/looper2.jpg" alt="Looper 2" class="product-image">
+                <h3 class="product-name">Looper 2</h3>
+                <p class="product-price">₹39.99</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Board Section -->
+    <section class="board">
+        <h2 class="section-title"><a href="categories.html#board">Board</a></h2>
+        <div class="product-grid-horizontal">
+            <div class="product-card">
+                <img src="images/board1.jpg" alt="Board 1" class="product-image">
+                <h3 class="product-name">Board 1</h3>
+                <p class="product-price">₹49.99</p>
+            </div>
+            <div class="product-card">
+                <img src="images/board2.jpg" alt="Board 2" class="product-image">
+                <h3 class="product-name">Board 2</h3>
+                <p class="product-price">₹59.99</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accessories Section -->
+    <section class="accessories">
+        <h2 class="section-title"><a href="categories.html#accessories">Accessories</a></h2>
+        <div class="product-grid-horizontal">
+            <div class="product-card">
+                <img src="images/accessory1.jpg" alt="Accessory 1" class="product-image">
+                <h3 class="product-name">Accessory 1</h3>
+                <p class="product-price">₹19.99</p>
+            </div>
+            <div class="product-card">
+                <img src="images/accessory2.jpg" alt="Accessory 2" class="product-image">
+                <h3 class="product-name">Accessory 2</h3>
+                <p class="product-price">₹24.99</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="categories.html" class="nav-item">
+            <i class="fas fa-th-large"></i>
+            <span>Categories</span>
+        </a>
+        <a href="orders.html" class="nav-item">
+            <i class="fas fa-redo"></i>
+            <span>Order Again</span>
+        </a>
+        <a href="cart.html" class="nav-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+        </a>
+    </nav>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sewing Cart</h3>
+                <p>Quality sewing supplies for every project</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="categories.html">Categories</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sewing Cart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/shared-cart.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/products.js"></script>
+    <script>
+    let currentBanner = 0;
+    const slides = document.querySelectorAll('.banner-slide');
+    const totalSlides = slides.length;
+
+    function showBannerSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+    }
+
+    function slideBanner(direction) {
+        currentBanner = (currentBanner + direction + totalSlides) % totalSlides;
+        showBannerSlide(currentBanner);
+    }
+
+    // Auto-slide every 4 seconds
+    setInterval(() => {
+        slideBanner(1);
+    }, 4000);
+
+    // Initialize
+    showBannerSlide(currentBanner);
+    </script>
+</body>
+</html> 

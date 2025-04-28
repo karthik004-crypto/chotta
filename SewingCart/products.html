@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Sewing Cart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .header {
+            background-color: #000000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Sewing Cart</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="products.html" class="active">Products</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="cart-icon">
+                <a href="cart.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <div class="profile-section">
+                <a href="login.html" class="profile-icon">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="products-container">
+            <div class="filters-sidebar">
+                <h3>Filters</h3>
+                <div class="filter-group">
+                    <h4>Categories</h4>
+                    <label><input type="checkbox" name="category" value="fabric"> Fabric</label>
+                    <label><input type="checkbox" name="category" value="thread"> Thread</label>
+                    <label><input type="checkbox" name="category" value="needles"> Needles</label>
+                    <label><input type="checkbox" name="category" value="tools"> Tools</label>
+                </div>
+                <div class="filter-group">
+                    <h4>Price Range</h4>
+                    <input type="range" min="0" max="1000" value="500" class="price-slider">
+                    <div class="price-range">
+                        <span>$0</span>
+                        <span>$1000</span>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <h4>Brand</h4>
+                    <label><input type="checkbox" name="brand" value="brand1"> Brand 1</label>
+                    <label><input type="checkbox" name="brand" value="brand2"> Brand 2</label>
+                    <label><input type="checkbox" name="brand" value="brand3"> Brand 3</label>
+                </div>
+                <button class="apply-filters">Apply Filters</button>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card" data-id="1" data-price="299.99">
+                    <img src="images/sewing-machine.jpg" alt="Sewing Machine" class="product-image">
+                    <h3 class="product-name">Sewing Machine Pro</h3>
+                    <p class="product-price">$299.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-id="2" data-price="24.99">
+                    <img src="images/fabric.jpg" alt="Premium Fabric" class="product-image">
+                    <h3 class="product-name">Premium Cotton Fabric</h3>
+                    <p class="product-price">$24.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-id="3" data-price="15.99">
+                    <img src="images/thread.jpg" alt="Thread Set" class="product-image">
+                    <h3 class="product-name">Thread Set (50 Colors)</h3>
+                    <p class="product-price">$15.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-id="4" data-price="19.99">
+                    <img src="images/needles.jpg" alt="Needle Set" class="product-image">
+                    <h3 class="product-name">Professional Needle Set</h3>
+                    <p class="product-price">$19.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-id="5" data-price="34.99">
+                    <img src="images/scissors.jpg" alt="Scissors" class="product-image">
+                    <h3 class="product-name">Premium Scissors</h3>
+                    <p class="product-price">$34.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-id="6" data-price="49.99">
+                    <img src="images/pattern.jpg" alt="Sewing Pattern" class="product-image">
+                    <h3 class="product-name">Sewing Pattern Pack</h3>
+                    <p class="product-price">$49.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="categories.html" class="nav-item active">
+            <i class="fas fa-th-large"></i>
+            <span>Categories</span>
+        </a>
+        <a href="orders.html" class="nav-item">
+            <i class="fas fa-redo"></i>
+            <span>Order Again</span>
+        </a>
+        <a href="cart.html" class="nav-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+        </a>
+    </nav>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sewing Cart</h3>
+                <p>Quality sewing supplies for every project</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sewing Cart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/shared-cart.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html> 

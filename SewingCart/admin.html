@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - SewingCart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .header {
+            background-color: #000000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <h2>SewingCart Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="active" data-title="Dashboard">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#products" data-title="Products">
+                    <i class="fas fa-box"></i>
+                    <span>Products</span>
+                </a>
+                <a href="#categories" data-title="Categories">
+                    <i class="fas fa-tags"></i>
+                    <span>Categories</span>
+                </a>
+                <a href="#orders" data-title="Orders">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="#customers" data-title="Customers">
+                    <i class="fas fa-users"></i>
+                    <span>Customers</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="admin-section active">
+                <h2>Dashboard Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-box"></i>
+                        <h3>Total Products</h3>
+                        <p class="stat-value" id="totalProducts">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Total Orders</h3>
+                        <p class="stat-value" id="totalOrders">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Total Customers</h3>
+                        <p class="stat-value" id="totalCustomers">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-dollar-sign"></i>
+                        <h3>Total Revenue</h3>
+                        <p class="stat-value" id="totalRevenue">$0</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products Section -->
+            <section id="products" class="admin-section">
+                <div class="section-header">
+                    <h2>Product Management</h2>
+                    <button id="addProductBtn" class="btn-primary">
+                        <i class="fas fa-plus"></i> Add Product
+                    </button>
+                </div>
+
+                <!-- Product Form -->
+                <div id="productFormContainer" class="form-container" style="display: none;">
+                    <form id="productForm">
+                        <input type="hidden" id="productId">
+                        <div class="form-group">
+                            <label for="productName">Product Name *</label>
+                            <input type="text" id="productName" required placeholder="Enter product name">
+                        </div>
+                        <div class="form-group">
+                            <label for="productImage">Product Image URL *</label>
+                            <input type="text" id="productImage" required placeholder="Enter image URL (e.g., images/product.jpg)">
+                            <div class="image-preview" id="productImagePreview"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="productDescription">Description *</label>
+                            <textarea id="productDescription" required placeholder="Enter product description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="productPrice">Price *</label>
+                            <input type="number" id="productPrice" step="0.01" required placeholder="Enter price">
+                        </div>
+                        <div class="form-group">
+                            <label for="productStock">Stock *</label>
+                            <input type="number" id="productStock" required placeholder="Enter stock quantity">
+                        </div>
+                        <div class="form-group">
+                            <label for="categorySelect">Category *</label>
+                            <select id="categorySelect" required>
+                                <option value="">Select a category</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Save Product</button>
+                            <button type="button" id="cancelProductBtn" class="btn-secondary">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Products Table -->
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productList">
+                            <!-- Products will be loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section id="categories" class="admin-section">
+                <div class="section-header">
+                    <h2>Category Management</h2>
+                    <button id="addCategoryBtn" class="btn-primary">
+                        <i class="fas fa-plus"></i> Add Category
+                    </button>
+                </div>
+
+                <!-- Category Form -->
+                <div id="categoryFormContainer" class="form-container" style="display: none;">
+                    <form id="categoryForm">
+                        <input type="hidden" id="categoryId">
+                        <div class="form-group">
+                            <label for="categoryName">Category Name</label>
+                            <input type="text" id="categoryName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="categoryDescription">Description</label>
+                            <textarea id="categoryDescription" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="categoryImage">Image URL</label>
+                            <input type="text" id="categoryImage" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Save</button>
+                            <button type="button" id="cancelCategoryBtn" class="btn-secondary">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Categories Table -->
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Products</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="categoryList">
+                            <!-- Categories will be loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html> 
